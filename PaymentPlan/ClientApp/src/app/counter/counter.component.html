@@ -1,0 +1,45 @@
+<div class="counter-main">
+    <h1>Check your payment plan</h1>
+
+    <div style="font-size:20px;font-weight:bold;color:white;">
+      Amount
+    </div>
+    <div class="textbox">
+      <i class="fas fa-money-bill"></i>
+      <input type="number" min="10000" max="1000000" [(ngModel)]="loan" placeholder="loan" />
+    </div>
+
+    <div style="font-size:20px;font-weight:bold;color:white;">
+      {{ matslider.value }} years
+    </div>
+    <div style="align-items:center;padding-left:0px;margin-left:0px;">
+      <mat-slider #matslider style="height:50px;width:100%;margin-left:0px;margin-right:20px;" thumbLabel tickInterval="1" min="{{minYears}}" max="{{maxYears}}" step="1" [(value)]="years" (change)="sliderChanged($event)"> </mat-slider>
+    </div>
+
+    <input type="button" class="btn" (click)="calculatePayments()" value="Calculate" />
+
+    <div *ngIf="payments">
+      <mat-table [dataSource]="dataSource">
+        <!-- Month Column -->
+        <ng-container matColumnDef="month">
+          <mat-header-cell *matHeaderCellDef style="font-weight:bold"> Month </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.month | monthName}} </mat-cell>
+        </ng-container>
+
+        <!-- Payment Column -->
+        <ng-container matColumnDef="payment">
+          <mat-header-cell *matHeaderCellDef style="font-weight:bold"> Payment </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.payment}} </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+
+      <mat-paginator [length]="dataLength"
+                     [pageSize]="pageSize"
+                     [pageSizeOptions]="pageSizeOptions"
+                     (page)="onPageChange($event)">
+      </mat-paginator>
+    </div>
+  </div>
