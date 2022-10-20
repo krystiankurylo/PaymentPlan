@@ -25,7 +25,7 @@ namespace PaymentPlan.Models
             set;
         }
 
-        public PaymentPlanBase(double interest, IPaymentCalculator paymentCalculator, Month startMonth = Month.JANUARY)
+        public PaymentPlanBase(double interest, IPaymentCalculator paymentCalculator, Month startMonth = Month.January)
         {
             Interest = interest;
             StartMonth = startMonth;

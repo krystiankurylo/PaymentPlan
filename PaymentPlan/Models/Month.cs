@@ -7,27 +7,27 @@ namespace PaymentPlan.Models
 {
     public enum Month
     {
-        JANUARY = 1,
-        FEBRUARY,
-        MARCH,
-        APRIL,
-        MAY,
-        JUNE,
-        JULY,
-        AUGUST,
-        SEPTEMBER,
-        OCTOBER,
-        NOVEMBER,
-        DECEMBER
+        January = 1,
+        February,
+        March,
+        April,
+        May,
+        June,
+        July,
+        August,
+        September,
+        October,
+        November,
+        December
     }
 
     static class MonthExtension
     {
         public static Month Next(this Month src)
         {
-            Month[] Arr = (Month[])Enum.GetValues(src.GetType());
-            int j = Array.IndexOf<Month>(Arr, src) + 1;
-            return (Arr.Length == j) ? Arr[0] : Arr[j];
+            var months = (Month[])Enum.GetValues(src.GetType());
+            var monthIndex = Array.IndexOf(months, src) + 1;
+            return (months.Length == monthIndex) ? months[0] : months[monthIndex];
         }
     }
 

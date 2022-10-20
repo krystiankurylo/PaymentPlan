@@ -7,8 +7,8 @@ namespace PaymentPlan.Models
 {
     public enum InstallmentType
     {
-        EQUAL,
-        DECREASING,
-        INCREASING
+        Equal,
+        Decreasing,
+        Increasing
     }
 }

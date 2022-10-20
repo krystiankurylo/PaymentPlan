@@ -12,44 +12,44 @@ export class MonthPaymentPair {
   public getMonthName() :string {
     switch (this.month) {
       case Month.january: {
-        return "JANUARY";
+        return "January";
       }
       case Month.february: {
-        return "FEBRUARY";
+        return "February";
       }
       case Month.march: {
-        return "MARCH";
+        return "March";
       }
       case Month.april: {
-        return "APRIL";
+        return "April";
       }
       case Month.may: {
-        return "MAY";
+        return "May";
       }
       case Month.june: {
-        return "JUNE";
+        return "June";
       }
       case Month.july: {
-        return "JULY";
+        return "July";
       }
       case Month.august: {
-        return "AUGUST";
+        return "August";
       }
       case Month.september: {
-        return "SEPTEMBER";
+        return "September";
       }
       case Month.october: {
-        return "OCTOBER";
+        return "October";
       }
       case Month.november: {
-        return "NOVEMBER";
+        return "November";
       }
       case Month.december: {
-        return "DECEMBER";
+        return "December";
       }
 
       default: {
-        return "NONE";
+        return "Unknown";
       }
     } 
   }
